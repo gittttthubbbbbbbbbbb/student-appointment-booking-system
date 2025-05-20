@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Book Appointment</h2>
+    <form method="post">
+        <input type="datetime-local" name="datetime" required><br>
+        <input type="text" name="purpose" placeholder="Purpose of Appointment" required><br>
+        <button type="submit">Book Slot</button>
+    </form>
+    <a class="back-btn" href="/">Back to Home</a>
+</div>
+</body>
+</html>

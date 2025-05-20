@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>All Appointments</h2>
+    {% if appointments %}
+        <form method="post">
+        {% for appt in appointments %}
+            <p>
+                {{ loop.index }}. {{ appt.user }} - {{ appt.slot.strftime('%Y-%m-%d %H:%M') }}
+                <br><strong>Purpose: </strong><td>{{appt.purpose}}</td><br>Status:
+                <span class="status {{ appt.status|lower }}">{{ appt.status }}</span>
+                {% if appt.status == 'Pending' %}
+                    <input type="hidden" name="index" value="{{ loop.index0 }}">
+                    <button name="action" value="accept">Accept</button>
+                    <button name="action" value="reject">Reject</button>
+                {% endif %}
+            </p>
+        {% endfor %}
+        </form>
+    {% else %}
+        <p>No appointments found.</p>
+    {% endif %}
+    <a class="back-btn" href="/">Back to Home</a>
+</div>
+</body>
+</html>

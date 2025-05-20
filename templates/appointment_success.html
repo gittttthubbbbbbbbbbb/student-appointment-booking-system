@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Appointment Submitted!</h2>
+    <p>Your slot for {{ slot.strftime('%Y-%m-%d %H:%M') }} with purpose "<strong>{{ purpose }}</strong>" is <strong>pending approval from admin</strong>.</p>
+    <a class="back-btn" href="/">Back to Home</a>
+</div>
+</body>
+</html>
